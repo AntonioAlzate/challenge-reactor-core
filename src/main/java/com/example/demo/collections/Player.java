@@ -1,7 +1,14 @@
 package com.example.demo.collections;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "jugadores")
 public class Player {
-    public int id;
+
+    @Id
+    public String id;
+    public int idPlayer;
     public String name;
     public int age;
     public String icon;
@@ -14,8 +21,8 @@ public class Player {
 
     }
 
-    public Player(int id, String name, int age, String icon, String national, int winners, int games, String club) {
-        this.id = id;
+    public Player(int idPlayer, String name, int age, String icon, String national, int winners, int games, String club) {
+        this.idPlayer = idPlayer;
         this.name = name;
         this.age = age;
         this.icon = icon;
@@ -25,12 +32,20 @@ public class Player {
         this.club = club;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public int getIdPlayer() {
+        return idPlayer;
+    }
+
+    public void setIdPlayer(int idPlayer) {
+        this.idPlayer = idPlayer;
     }
 
     public String getName() {
