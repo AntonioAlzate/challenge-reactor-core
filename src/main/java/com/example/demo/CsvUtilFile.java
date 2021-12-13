@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class CsvUtilFile {
-    private CsvUtilFile(){}
+    private CsvUtilFile() {
+    }
 
-    public static List<Player> getPlayers(){
-        var uri =  CsvUtilFile.class.getClassLoader().getResource("data.csv");
+    public static List<Player> getPlayers() {
+        var uri = CsvUtilFile.class.getClassLoader().getResource("data.csv");
         List<Player> list = new ArrayList<>();
         try (CSVReader reader = new CSVReader(new FileReader(uri.getFile()))) {
             List<String[]> registers = reader.readAll();
@@ -29,7 +30,7 @@ public class CsvUtilFile {
                     strings[7]
             )));
 
-           return list;
+            return list;
 
         } catch (IOException | CsvException e) {
             throw new IllegalArgumentException(e.getMessage());

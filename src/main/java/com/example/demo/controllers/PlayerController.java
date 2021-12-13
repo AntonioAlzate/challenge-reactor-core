@@ -17,12 +17,12 @@ public class PlayerController {
     private PlayerService service;
 
     @GetMapping("obtener/mayores34/{club}")
-    public Flux<Player> obtenerJugadoresMayores34DelClub(@PathVariable("club") String club){
+    public Flux<Player> obtenerJugadoresMayores34DelClub(@PathVariable("club") String club) {
         return service.obtenerJugadoresMayores34DelClub(club);
     }
 
     @GetMapping("obtener/ranking-por-pais")
-    public Flux<Player> obtenerMayorRankingCadaPais(){
+    public Flux<Player> obtenerMayorRankingCadaPais() {
         return service.obtenerMayorRankingCadaPais();
     }
 }

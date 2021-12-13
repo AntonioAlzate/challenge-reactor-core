@@ -8,8 +8,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -31,7 +29,7 @@ public class PlayerService {
 
     // En este método se traen los jugadores se agrupan por nacionalidad
     // luego se pasa a listas para cada nacionalidad y se selecciona el de mayor número de victorias
-    public Flux<Player> obtenerMayorRankingCadaPais(){
+    public Flux<Player> obtenerMayorRankingCadaPais() {
         return repository.findAll()
                 .groupBy(player -> player.getNational())
                 .flatMap(Flux::collectList)
@@ -43,10 +41,10 @@ public class PlayerService {
     private List<Player> obtenerJugadorMayorWinners(List<Player> players) {
         List<Player> playersRanking = new ArrayList<>();
         players.forEach(player -> {
-            if(playersRanking.isEmpty())
+            if (playersRanking.isEmpty())
                 playersRanking.add(player);
 
-            if(playersRanking.get(0).getWinners() < player.getWinners()){
+            if (playersRanking.get(0).getWinners() < player.getWinners()) {
                 playersRanking.remove(0);
                 playersRanking.add(player);
             }
