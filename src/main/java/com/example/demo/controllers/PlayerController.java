@@ -20,4 +20,9 @@ public class PlayerController {
     public Flux<Player> obtenerJugadoresMayores34DelClub(@PathVariable("club") String club){
         return service.obtenerJugadoresMayores34DelClub(club);
     }
+
+    @GetMapping("obtener/ranking-por-pais")
+    public Flux<Player> obtenerMayorRankingCadaPais(){
+        return service.obtenerMayorRankingCadaPais();
+    }
 }
