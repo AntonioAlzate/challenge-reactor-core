@@ -69,6 +69,22 @@ class PlayerServiceTest {
         Mockito.verify(repository).findAll();
     }
 
+    @Test
+    void NoExistenJugadoresMayores34() {
+        Flux<Player> playersFlux = Flux.empty();
+        String clubDummy = "dummy";
+
+        Mockito.when(repository.findByClub(clubDummy)).thenReturn(playersFlux);
+
+        Flux<Player> response = service.obtenerJugadoresMayores34DelClub(clubDummy);
+
+        StepVerifier.create(response)
+                .expectErrorMessage(PlayerService.NO_EXISTEN_JUGADORES + clubDummy)
+                .verify();
+
+        Mockito.verify(repository).findByClub(clubDummy);
+    }
+
     private List<Player> obtenerJugadoresDummy() {
         List<Player> players = new ArrayList<>();
         players.add(new Player(3, "sss", 33, "icon", "Brasil", 7, 1, "juventus"));
