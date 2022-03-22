@@ -7,9 +7,9 @@
 
 ## Para Utilizar los servicios
 1. Para obtener los jugadores mayores a 34 años correspondientes a un club:
-   http://localhost:8080/api/v1/player/obtener/mayores34/{club} {club} --> el nombre del club por el cual se desea filtrar puede ir con espacios ej: "FC Barcelona"
+   http://localhost:8080/api/v1/player/mayores34?club={valor} --> el nombre del club por el cual se desea filtrar puede ir con espacios ej: "FC Barcelona"
 2. Para obtener los jugadores con mayor número de victorias de cada país:
-   http://localhost:8080/api/v1/player/obtener/ranking-por-pais
+   http://localhost:8080/api/v1/player/ranking-por-pais
 
 ### Gracias por leer :v:
 
